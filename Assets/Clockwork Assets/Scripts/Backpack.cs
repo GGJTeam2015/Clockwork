@@ -9,18 +9,38 @@ public class Backpack : MonoBehaviour{
 
     public List<Item> getItems() { return thePack; } 
     public int getItemNum() { return thePack.Count; } // Number of items
-    public void addItem(Item item) { thePack.Add(item); } // Add an item to container
+    
     public void destroyItem(int idx) { thePack.RemoveAt(idx); } // Remove an item at index from container
 
     public void removeItem(string itemName)
     {
         thePack.Find(x => x.name == itemName).removeItem();
 
-        if (thePack.Find(x => x.name == itemName).count <= 0)
+        if (thePack.Find(x => x.name == itemName).getCount() <= 0)
         {
             destroyItem(thePack.FindIndex(x => x.name == itemName));
         }
     } // Decrement the count and if 0 destroy it
+
+    public bool hasItem(string itemName)
+    {
+        if (thePack.Exists(x => x.name == itemName))
+        { return true; }
+        else
+        { return false; }
+    }
+
+    public void addItem(Item item) {
+        if (hasItem(item.name))
+        {
+            thePack.Find(x => x.name == item.name).addItem();
+        }
+
+        else
+        {
+            thePack.Add(item);
+        }
+    } // Add an item to container. If already exist, increase count else add it
 
 	public int getSpacecraftItemNum()
 	{

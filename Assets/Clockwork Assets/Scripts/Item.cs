@@ -6,9 +6,11 @@ using Assets.Scripts;
 // Item that will be stored in the backpack
 public class Item : MonoBehaviour{
 
-    // Private fields
+    // Public fields
     public string name;
-    public int count;
+
+    // Private fields
+    private int count = 1;
 
     // Getters
     public string getName() { return name; }
