@@ -5,6 +5,8 @@ using System.Collections.Generic;
 // Backpack to hold items
 public class Backpack : MonoBehaviour{
 
+    public bool isP1 = true; // 1:This Backpack Belongs to P1  0:This Backpack Belongs to P2
+
 	private List<Item> thePack = new List<Item>(); // The container
 
 	public List<Item> getItems() { return thePack; } 
@@ -30,6 +32,19 @@ public class Backpack : MonoBehaviour{
 		{ return false; }
 	}
 
+    public int getItemNum(string itemName)
+    {
+        int count = 0;
+        foreach (Item it in thePack)
+        {
+            if (it.name == itemName)
+            {
+                count++;
+            }
+        }
+        return count;
+    }
+
 	public void addItem(Item item) {
 		if (hasItem(item.name))
 		{
@@ -40,7 +55,70 @@ public class Backpack : MonoBehaviour{
 		{
 			thePack.Add(item);
 		}
+
+        // Check if win?!
+        checkWin();
+
 	} // Add an item to container. If already exist, increase count else add it
+
+    private void checkWin()
+    {
+        // Check if one wins!
+        if (isP1)
+        {
+            if (checkEndGameP1())
+            {
+                Debug.Log("P1 WINS!!!!");
+            }
+        }
+
+        else
+        {
+            if (checkEndGameP2())
+            {
+                Debug.Log("P2 WINS!!!!");
+            }
+        }
+    }
+
+    private bool checkEndGameP2()
+    {
+        List<string> names = SpacecraftItemControl.Inst.itemNames;
+        List<int> goalP1 = SpacecraftItemControl.Inst.goalsP1;
+        List<int> goalP2 = SpacecraftItemControl.Inst.goalsP2;
+
+
+        // For P2
+        bool isP2Win = true;
+        for (int i = 0; i != names.Count; i++)
+        {
+            if (getItemNum(names[i]) < goalP2[i])
+            {
+                isP2Win = false;
+            }
+        }
+
+        return isP2Win;
+    }
+
+    private bool checkEndGameP1()
+    {
+        List<string> names = SpacecraftItemControl.Inst.itemNames;
+        List<int> goalP1 = SpacecraftItemControl.Inst.goalsP1;
+        List<int> goalP2 = SpacecraftItemControl.Inst.goalsP2;
+
+        // For P1
+        bool isP1Win = true;
+        for (int i = 0; i != names.Count; i++)
+        {
+            if (getItemNum(names[i]) < goalP1[i])
+            {
+                isP1Win = false;
+            }
+        }
+
+        return isP1Win;
+    }
 
 	public int getSpacecraftItemNum()
 	{
