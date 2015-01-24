@@ -4,13 +4,14 @@ using System.Collections;
 [RequireComponent(typeof(NavMeshAgent))]
 public class Enemy : MonoBehaviourExtend
 {
-    [SerializeField] private Transform target = null;
-    [SerializeField] private AIState currentState = null;
+/*    [SerializeField] private Transform target = null;
+    [SerializeField] private AIState currentState = null;*/
     [SerializeField] private int damageToPlayer = 200;
 
 //    [SerializeField] private float chasingRange = 5.0f;
 
     private NavMeshAgent agent = null;
+    public Transform Target { get; set; }
 
     void Start()
     {
@@ -24,7 +25,7 @@ public class Enemy : MonoBehaviourExtend
 //        Gizmos.DrawWireSphere(TransformCached.position, chasingRange);
     }
 
-    void OnTriggerEnter(Collider coll)
+    void OnCollisionEnter(Collision coll)
     {
         if (coll.gameObject.GetComponent<PlayerProperties>() != null)
         {
@@ -38,9 +39,9 @@ public class Enemy : MonoBehaviourExtend
 
     void LateUpdate()
     {
-        if (target)
+/*        if (target)
         {
             agent.SetDestination(target.position);
-        }
+        }*/
     }
 }
