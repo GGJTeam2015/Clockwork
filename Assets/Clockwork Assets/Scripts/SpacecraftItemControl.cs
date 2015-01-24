@@ -36,6 +36,5 @@ public class SpacecraftItemControl : MonoBehaviour {
         { inst = this; }
     }
 
-	
 
 }
