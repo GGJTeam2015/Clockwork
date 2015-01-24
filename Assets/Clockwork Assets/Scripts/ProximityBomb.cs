@@ -9,7 +9,7 @@ public class ProximityBomb : StandardBomb
     // Proximity bomb is different from standart bomb:
     // * It will trigger when you close to that
 
-    void Start()
+    protected virtual void Start()
     {
         // Increase the trigger radius so when player or enemy enters it,
         // we understand that it is in radius and we trigger the bomb
@@ -25,10 +25,8 @@ public class ProximityBomb : StandardBomb
         }
     }
 
-    void OnTriggerEnter(Collider coll)
+    protected virtual void OnTriggerEnter(Collider coll)
     {
-        Debug.Log("Enter");
-
         // Is it an enemy or player?
         if (coll.GetComponent<EnemyProperties>() != null
             || coll.GetComponent<PlayerProperties>() != null)
