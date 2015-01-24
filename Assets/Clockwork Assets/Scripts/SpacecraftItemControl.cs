@@ -11,16 +11,7 @@ public class SpacecraftItemControl : MonoBehaviour {
     public List<GameObject> itemPrefabs = new List<GameObject>(5);
     public float prefabDropProb = 0.1f;
 
-    // Getter
-    public static SpacecraftItemControl Inst { get { return inst; } }
-
-    void Awake()
-    {
-        if (inst == null)
-        { inst = this; }
-    }
-
-	// Get a prefab
+    // Get a prefab
     public GameObject giveMeAnItem()
     {
         // Drop?
@@ -36,5 +27,15 @@ public class SpacecraftItemControl : MonoBehaviour {
             return null;
         }
     }
+
+    // Getter
+    public static SpacecraftItemControl Inst { get { return inst; } }
+    void Awake()
+    {
+        if (inst == null)
+        { inst = this; }
+    }
+
+	
 
 }
