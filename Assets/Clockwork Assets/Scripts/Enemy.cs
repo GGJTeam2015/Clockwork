@@ -4,11 +4,13 @@ using System.Collections;
 [RequireComponent(typeof(NavMeshAgent))]
 public class Enemy : MonoBehaviourExtend
 {
-    [SerializeField] private Transform target = null;
-    [SerializeField] private AIState currentState = null;
+//    [SerializeField] private Transform target = null;
+//    [SerializeField] private AIState currentState = null;
 //    [SerializeField] private float chasingRange = 5.0f;
 
     private NavMeshAgent agent = null;
+
+    public Transform Target { get; set; }
 
     void Start()
     {
@@ -24,9 +26,9 @@ public class Enemy : MonoBehaviourExtend
 
     void LateUpdate()
     {
-        if (target)
+        /*if (target)
         {
             agent.SetDestination(target.position);
-        }
+        }*/
     }
 }
