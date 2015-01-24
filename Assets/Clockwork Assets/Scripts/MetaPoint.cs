@@ -4,6 +4,8 @@ using System.Collections;
 
 public class MetaPoint : MonoBehaviourExtend
 {
+    [SerializeField] private GameObject spawnerPrefab = null;
+
     void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
@@ -27,7 +29,15 @@ public class MetaPoint : MonoBehaviourExtend
         switch (metaType)
         {
             case MetaType.Spawner:
-                gameObject.AddComponent<SpawnPoint>();
+                //gameObject.AddComponent<SpawnPoint>();
+                if (spawnerPrefab)
+                {
+                    Instantiate(spawnerPrefab, TransformCached.position, Quaternion.identity);
+                }
+                else
+                {
+                    Debug.LogError("Spawner prefab is empty");
+                }
                 break;
 
             case MetaType.Waypoint:
