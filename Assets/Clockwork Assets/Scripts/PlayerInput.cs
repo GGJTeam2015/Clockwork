@@ -5,6 +5,7 @@ using System.Collections;
 [RequireComponent(typeof(Ammo))]
 public class PlayerInput : MonoBehaviourExtend
 {
+    [SerializeField] private bool isGamepad = false;
     private CharacterController characterController = null;
     private Ammo ammo = null;
 
@@ -16,8 +17,8 @@ public class PlayerInput : MonoBehaviourExtend
 	
 	void Update ()
 	{
-	    float vertical = Input.GetAxis("Vertical");
-	    float horizontal = Input.GetAxis("Horizontal");
+	    float vertical = isGamepad ? Input.GetAxis("VerticalGP") : Input.GetAxis("Vertical");
+	    float horizontal = isGamepad ? Input.GetAxis("HorizontalGP") : Input.GetAxis("Horizontal");
 
 	    characterController.Direction = Vector3.zero;
         characterController.Direction += vertical * Vector3.forward;
