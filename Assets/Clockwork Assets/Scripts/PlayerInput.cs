@@ -6,13 +6,18 @@ using System.Collections;
 public class PlayerInput : MonoBehaviourExtend
 {
     [SerializeField] private bool isGamepad = false;
+    [SerializeField] private float plantCooldown = 1.0f;
+
     private CharacterController characterController = null;
     private Ammo ammo = null;
+
+    private float coolingTimePassed = 0.0f;
 
 	void Start ()
 	{
 	    characterController = GetComponent<CharacterController>();
 	    ammo = GetComponent<Ammo>();
+        coolingTimePassed = plantCooldown;
 	}
 	
 	void Update ()
@@ -37,8 +42,19 @@ public class PlayerInput : MonoBehaviourExtend
 	    bool hasPlanted = isGamepad ? Input.GetButtonDown("PlantGP") : Input.GetButtonDown("Plant");
 	    if (hasPlanted)
 	    {
-	        Instantiate(ammo.RegularAmmoPrefab, TransformCached.position, Quaternion.identity);
-            audio.Play();
+            Plant();
 	    }
+
+        coolingTimePassed -= Time.deltaTime; // Update cooldown time passed
 	}
+
+    void Plant()
+    {
+        if (coolingTimePassed < 0.0f)
+        {
+            Instantiate(ammo.RegularAmmoPrefab, TransformCached.position, Quaternion.identity);
+            audio.Play();
+            coolingTimePassed = plantCooldown;
+        }
+    }
 }
