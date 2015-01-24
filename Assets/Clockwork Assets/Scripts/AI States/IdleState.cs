@@ -2,6 +2,8 @@
 
 public class IdleState : AIState
 {
+    [SerializeField] private Enemy enemy = null;
+
     void OnEnable()
     {
         SetNewCourse();
@@ -9,7 +11,7 @@ public class IdleState : AIState
 
     void Update()
     {
-        if (Mathf.Approximately(agent.speed, 0))
+        if (agent.remainingDistance < 0.2f)
         {
             SetNewCourse();
         }
@@ -18,6 +20,7 @@ public class IdleState : AIState
     void OnTriggerEnter(Collider col)
     {
         Debug.Log("Trigger entered");
+        enemy.Target = col.transform;
         NextState();
     }
 
