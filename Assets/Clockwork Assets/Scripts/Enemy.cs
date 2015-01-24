@@ -5,7 +5,8 @@ using System.Collections;
 public class Enemy : MonoBehaviourExtend
 {
     [SerializeField] private Transform target = null;
-    [SerializeField] private float chasingRange = 5.0f;
+    [SerializeField] private AIState currentState = null;
+//    [SerializeField] private float chasingRange = 5.0f;
 
     private NavMeshAgent agent = null;
 
@@ -18,7 +19,7 @@ public class Enemy : MonoBehaviourExtend
     {
         Gizmos.color = Color.red;
 
-        Gizmos.DrawWireSphere(TransformCached.position, chasingRange);
+//        Gizmos.DrawWireSphere(TransformCached.position, chasingRange);
     }
 
     void LateUpdate()
