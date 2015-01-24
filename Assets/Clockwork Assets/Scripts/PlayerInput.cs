@@ -34,7 +34,8 @@ public class PlayerInput : MonoBehaviourExtend
 	        TransformCached.rotation = Quaternion.LookRotation(characterController.Direction, Vector3.up);
 	    }
 
-	    if (Input.GetButtonDown("Plant"))
+	    bool hasPlanted = isGamepad ? Input.GetButtonDown("PlantGP") : Input.GetButtonDown("Plant");
+	    if (hasPlanted)
 	    {
 	        Instantiate(ammo.RegularAmmoPrefab, TransformCached.position, Quaternion.identity);
             audio.Play();
