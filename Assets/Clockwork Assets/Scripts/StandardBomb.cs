@@ -35,6 +35,11 @@ public class StandardBomb : MonoBehaviourExtend
             collider1.SendMessage("Damage", damageAmount, SendMessageOptions.DontRequireReceiver);
         }
 
+        int destroyTime;
+        GameObject explosionPrefab = FxManager.Instance.GetEffectPrefab("explosion", out destroyTime);
+
+        GameObject explosionEffect = Instantiate(explosionPrefab, TransformCached.position + TransformCached.up, Quaternion.identity) as GameObject;
+        Destroy(explosionEffect, destroyTime);
         Destroy(gameObject);
     }
 }
