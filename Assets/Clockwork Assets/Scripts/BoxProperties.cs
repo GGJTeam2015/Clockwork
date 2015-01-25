@@ -33,7 +33,8 @@ public class BoxProperties : Properties {
                 item.layer = LayerMask.NameToLayer("NPC2");
             }
             
-            Instantiate(item, this.transform.position, Quaternion.identity);
+            Vector3 randRot = new Vector3( Random.Range(0,90), Random.Range(0,90), Random.Range(0,90) );
+            Instantiate(item, this.transform.position, Quaternion.Euler(randRot));
         }
 
         ///TODO: Add destroy effect
