@@ -606,6 +606,117 @@ ModelImporter:
     4300216: character_head
     4300218: character_gastank
     4300220: character_gastank_fire
+    6400000: character_body
+    6400002: character_gastank
+    6400004: character_gastank_fire
+    6400006: character_head
+    6400008: character_neck
+    6400010: Cylinder047
+    6400012: Line070
+    6400014: Line071
+    6400016: Line072
+    6400018: Line073
+    6400020: Line074
+    6400022: Line075
+    6400024: Line076
+    6400026: Line077
+    6400028: Line078
+    6400030: Line079
+    6400032: Line080
+    6400034: Line081
+    6400036: Line082
+    6400038: Line083
+    6400040: Line084
+    6400042: Line085
+    6400044: Line086
+    6400046: Line087
+    6400048: Line088
+    6400050: Line089
+    6400052: Line090
+    6400054: Line091
+    6400056: Line092
+    6400058: Line093
+    6400060: Line094
+    6400062: Line095
+    6400064: Line096
+    6400066: Line097
+    6400068: Line098
+    6400070: Line099
+    6400072: Line100
+    6400074: Line101
+    6400076: Line134
+    6400078: Line135
+    6400080: Line136
+    6400082: Line137
+    6400084: Line138
+    6400086: Line139
+    6400088: Line140
+    6400090: Line141
+    6400092: Line142
+    6400094: Line143
+    6400096: Line144
+    6400098: Line145
+    6400100: Line146
+    6400102: Line147
+    6400104: Line148
+    6400106: Line149
+    6400108: Line150
+    6400110: Line151
+    6400112: Line152
+    6400114: Line153
+    6400116: Line154
+    6400118: Line155
+    6400120: Line156
+    6400122: Line157
+    6400124: Line158
+    6400126: Line159
+    6400128: Line160
+    6400130: Line161
+    6400132: Line162
+    6400134: Line163
+    6400136: Line164
+    6400138: Line165
+    6400140: Line166
+    6400142: Line167
+    6400144: Line168
+    6400146: Line169
+    6400148: Line170
+    6400150: Line171
+    6400152: Line172
+    6400154: Line173
+    6400156: Object006
+    6400158: Object007
+    6400160: Object008
+    6400162: Object009
+    6400164: Object010
+    6400166: Object011
+    6400168: Object012
+    6400170: Object013
+    6400172: Object014
+    6400174: Object051
+    6400176: Object068
+    6400178: Plane005
+    6400180: Pyramid029
+    6400182: Pyramid030
+    6400184: Pyramid031
+    6400186: Pyramid032
+    6400188: Pyramid033
+    6400190: Pyramid034
+    6400192: Pyramid035
+    6400194: Pyramid036
+    6400196: Pyramid037
+    6400198: Pyramid038
+    6400200: Pyramid039
+    6400202: Pyramid040
+    6400204: Pyramid041
+    6400206: Pyramid042
+    6400208: Pyramid043
+    6400210: Pyramid044
+    6400212: Pyramid045
+    6400214: Pyramid046
+    6400216: Pyramid047
+    6400218: Pyramid048
+    6400220: Pyramid049
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -628,7 +739,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: .00999999978
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
