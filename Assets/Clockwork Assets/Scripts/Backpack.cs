@@ -39,16 +39,17 @@ public class Backpack : MonoBehaviour{
         {
             if (it.name == itemName)
             {
-                count++;
+                count += it.count;
             }
         }
         return count;
     }
 
 	public void addItem(Item item) {
+
 		if (hasItem(item.name))
 		{
-			thePack.Find(x => x.name == item.name).addItem();
+            thePack.Find(x => x.name == item.name).addItem();
 		}
 
 		else
@@ -56,6 +57,7 @@ public class Backpack : MonoBehaviour{
 			thePack.Add(item);
 		}
 
+        
         // Check if win?!
         checkWin();
 

@@ -10,7 +10,7 @@ public class Item : MonoBehaviour{
     public string name;
 
     // Private fields
-    private int count = 1;
+    public int count = 1;
 
     // Getters
     public string getName() { return name; }

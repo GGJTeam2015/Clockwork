@@ -17,6 +17,27 @@ public class EnemyProperties : Properties {
     {
         Debug.Log("An enemy died");
 
+        // Drop item?
+        GameObject item = SpacecraftItemControl.Inst.giveMeAnItem();
+
+        if (item != null)
+        {
+            // Item Dropped!
+
+            // Choose one player
+            if (Random.Range(0, 1) == 0)
+            {
+                item.layer = LayerMask.NameToLayer("NPC1");
+            }
+
+            else
+            {
+                item.layer = LayerMask.NameToLayer("NPC2");
+            }
+
+            Instantiate(item, this.transform.position, Quaternion.identity);
+        }
+
         Destroy(this.gameObject);
     }
 }
