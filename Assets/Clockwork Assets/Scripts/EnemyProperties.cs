@@ -38,6 +38,13 @@ public class EnemyProperties : Properties {
             Instantiate(item, this.transform.position, Quaternion.identity);
         }
 
+        int destroyTime;
+        GameObject effectPrefab = FxManager.Instance.GetEffectPrefab("destroy", out destroyTime);
+
+        GameObject effect = Instantiate(effectPrefab, TransformCached.position + TransformCached.up, Quaternion.identity) as GameObject;
+
+        Destroy(effect, destroyTime);
+
         Destroy(this.gameObject);
     }
 }
