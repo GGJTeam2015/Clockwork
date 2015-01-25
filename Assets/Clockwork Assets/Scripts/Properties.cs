@@ -13,6 +13,9 @@ public class Properties : MonoBehaviourExtend, IDestructable
         health = startHealth;
     }
 
+    public int getHealth() { return health; }
+    public int getMaxHealth() { return startHealth; }
+
     public virtual void Damage(int damageAmount)
     {
         health -= damageAmount;
