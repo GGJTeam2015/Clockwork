@@ -22,7 +22,6 @@ public class GUIhealthControl : MonoBehaviour {
 	void Update () {
 
         img.fillAmount =  (0.0f+ prop.getHealth()) /  (0.0f + prop.getMaxHealth());
-        Debug.Log("H: " + prop.getHealth() + " Max: " + prop.getMaxHealth() + "/: "+(0.0f + prop.getHealth()) / (0.0f + prop.getMaxHealth()));
-	
+       
 	}
 }
