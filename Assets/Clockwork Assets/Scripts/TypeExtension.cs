@@ -1,5 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using UnityEngine;
+using Random = System.Random;
 
 namespace Assets.Scripts
 {
@@ -17,6 +18,16 @@ namespace Assets.Scripts
                 list[k] = list[n];
                 list[n] = value;
             }
-        } 
+        }
+
+        public static void SetLayerRecursively(this GameObject obj, int layer)
+        {
+            obj.layer = layer;
+
+            foreach (Transform child in obj.transform)
+            {
+                child.gameObject.SetLayerRecursively(layer);
+            }
+        }
     }
 }

@@ -1,12 +1,22 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System;
+using Assets.Scripts;
+using UnityEngine;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class Enemy : MonoBehaviourExtend
 {
+    [Serializable]
+    public class LayerPack
+    {
+        public string BodyLayer;
+        public string RangeLayer;
+    }
+
 /*    [SerializeField] private Transform target = null;
     [SerializeField] private AIState currentState = null;*/
     [SerializeField] private int damageToPlayer = 200;
+    [SerializeField] private LayerPack[] layers = null;
+    [SerializeField] private GameObject rangeObject = null;
 
 //    [SerializeField] private float chasingRange = 5.0f;
 
@@ -16,6 +26,16 @@ public class Enemy : MonoBehaviourExtend
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        EnemyManager.Instance.IncEnemy();
+
+        LayerPack pack = layers[UnityEngine.Random.Range(0, layers.Length)];
+        gameObject.SetLayerRecursively(LayerMask.NameToLayer(pack.BodyLayer));
+        rangeObject.layer = LayerMask.NameToLayer(pack.RangeLayer);
+    }
+
+    void OnDestroy()
+    {
+        EnemyManager.Instance.DecEnemy();
     }
 
     void OnDrawGizmos()

@@ -34,8 +34,11 @@ public class SpawnPoint : MonoBehaviourExtend
             {
                 if (currentTimeCooldown > cooldown)
                 {
-                    Instantiate(objectPrefab, TransformCached.position, Quaternion.identity);
-                    currentSpawnedObjects++;
+                    if (EnemyManager.Instance.CanSpawnEnemies())
+                    {
+                        Instantiate(objectPrefab, TransformCached.position, Quaternion.identity);
+                        currentSpawnedObjects++;
+                    }
                     currentTimeCooldown = 0;
                 }
                 else
