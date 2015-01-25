@@ -38,8 +38,12 @@ public class BoxProperties : Properties {
             Instantiate(item, upToSky, Quaternion.Euler(randRot));
         }
 
-        ///TODO: Add destroy effect
+        int destroyTime;
+        GameObject effectPrefab = FxManager.Instance.GetEffectPrefab("destroy", out destroyTime);
 
+        GameObject effect = Instantiate(effectPrefab, TransformCached.position + TransformCached.up, Quaternion.identity) as GameObject;
+
+        Destroy(effect, destroyTime);
         // Destroy the box
         Destroy(this.gameObject);
     }
