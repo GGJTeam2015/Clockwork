@@ -1,9 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class loadLevelGUI : MonoBehaviour {
+public class loadLevelGUI : MonoBehaviour
+{
+    private static loadLevelGUI instance = null;
 
-	// Use this for initialization
+    public static loadLevelGUI Instance
+    {
+        get
+        {
+            if (!instance)
+            {
+                instance = FindObjectOfType<loadLevelGUI>();
+            }
+
+            return instance;
+        }
+    }
+
+    // Use this for initialization
 	public void newGame()
 	{
 		Application.LoadLevel("Level1");
@@ -23,4 +38,19 @@ public class loadLevelGUI : MonoBehaviour {
 	{
 		Application.Quit();
 	}
+
+    public void win()
+    {
+        Application.LoadLevel("win");
+    }
+
+    public void loose()
+    {
+        Application.LoadLevel("loose");
+    }
+
+    public void loadLevelWithDelay(string func, float seconds)
+    {
+        Invoke(func, seconds);
+    }
 }

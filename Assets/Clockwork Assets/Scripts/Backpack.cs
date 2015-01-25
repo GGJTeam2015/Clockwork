@@ -66,6 +66,8 @@ public class Backpack : MonoBehaviour{
     private void checkWin()
     {
         // Check if one wins!
+/*
+
         if (isP1)
         {
             if (checkEndGameP1())
@@ -80,6 +82,12 @@ public class Backpack : MonoBehaviour{
             {
                 Debug.Log("P2 WINS!!!!");
             }
+        }
+*/
+
+        if (checkEndGameP1() && checkEndGameP2())
+        {
+            loadLevelGUI.Instance.win();
         }
     }
 
