@@ -23,7 +23,7 @@ public class BoxProperties : Properties {
             // Item Dropped!
 
             // Choose one player
-            if(Random.Range(0,1) == 0)
+            if(Random.Range(0.0f,1.0f) > 0.5f)
             {
                 item.layer = LayerMask.NameToLayer("NPC1");
             }
