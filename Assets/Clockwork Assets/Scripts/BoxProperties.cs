@@ -34,7 +34,8 @@ public class BoxProperties : Properties {
             }
             
             Vector3 randRot = new Vector3( Random.Range(0,90), Random.Range(0,90), Random.Range(0,90) );
-            Instantiate(item, this.transform.position, Quaternion.Euler(randRot));
+            Vector3 upToSky = new Vector3(this.transform.position.x, this.transform.position.y + 3.0f, this.transform.position.z);
+            Instantiate(item, upToSky, Quaternion.Euler(randRot));
         }
 
         ///TODO: Add destroy effect
