@@ -45,15 +45,17 @@ public class PlayerInput : MonoBehaviourExtend
             Plant();
 	    }
 
-        coolingTimePassed -= Time.deltaTime; // Update cooldown time passed
+        if (coolingTimePassed > -0.5f)
+        {
+            coolingTimePassed -= Time.deltaTime; // Update cooldown time passed
+        }
 	}
 
     void Plant()
     {
-        if (coolingTimePassed < 0.0f)
+        if (coolingTimePassed < 0.0001f)
         {
             Instantiate(ammo.RegularAmmoPrefab, TransformCached.position, Quaternion.identity);
-            audio.Play();
             coolingTimePassed = plantCooldown;
         }
     }
