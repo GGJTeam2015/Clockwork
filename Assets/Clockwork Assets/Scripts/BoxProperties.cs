@@ -3,6 +3,8 @@ using System.Collections;
 
 public class BoxProperties : Properties {
 
+    public GameObject boxDestroyEffect = null;
+
     public override void Damage(int damageAmount)
     {
         base.Damage(damageAmount);
@@ -35,6 +37,10 @@ public class BoxProperties : Properties {
             
             Instantiate(item, this.transform.position, Quaternion.identity);
         }
+
+
+        // Instantiate effect
+        Instantiate(boxDestroyEffect, this.transform.position, Quaternion.identity);
 
         // Destroy the box
         Destroy(this.gameObject);
