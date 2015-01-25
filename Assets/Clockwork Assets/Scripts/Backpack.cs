@@ -134,7 +134,7 @@ public class Backpack : MonoBehaviour{
 	} // How many space craft items
 
 	// Check if player grabbed a spacecraft item
-	void OnTriggerEnter(Collider coll)
+	void OnCollisionEnter(Collision coll)
 	{
 		// Dont get mad! :P
 		// If it is a spacecraft item
