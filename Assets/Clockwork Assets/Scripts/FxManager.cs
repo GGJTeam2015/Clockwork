@@ -25,6 +25,7 @@ public class FxManager : MonoBehaviourExtend
     {
         public string EffectName;
         public GameObject EffectPrefab;
+        public int DestroyInSec = -1;
     }
 
     [SerializeField] private FxPair[] effects = null;
@@ -45,6 +46,24 @@ public class FxManager : MonoBehaviourExtend
         if (pack != null)
         {
             effect = pack.EffectPrefab;
+        }
+
+        return effect;
+    }
+
+    public GameObject GetEffectPrefab(string effectName, out int destroyTime)
+    {
+        destroyTime = -1;
+        GameObject effect = null;
+
+        var pack =
+            effects.SingleOrDefault(
+                pair => string.Equals(pair.EffectName.ToLowerInvariant().Trim(), effectName.ToLowerInvariant().Trim()));
+
+        if (pack != null)
+        {
+            effect = pack.EffectPrefab;
+            destroyTime = pack.DestroyInSec;
         }
 
         return effect;
