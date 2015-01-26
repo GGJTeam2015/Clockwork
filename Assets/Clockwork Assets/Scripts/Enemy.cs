@@ -35,7 +35,10 @@ public class Enemy : MonoBehaviourExtend
 
     void OnDestroy()
     {
-        EnemyManager.Instance.DecEnemy();
+        if (EnemyManager.Instance)
+        {
+            EnemyManager.Instance.DecEnemy();
+        }
     }
 
     void OnDrawGizmos()

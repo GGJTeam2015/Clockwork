@@ -21,7 +21,7 @@ public class loadLevelGUI : MonoBehaviour
     // Use this for initialization
 	public void newGame()
 	{
-		Application.LoadLevel("Level1");
+		Application.LoadLevel("Level2");
 	}
 
 	public void mainMenu()
